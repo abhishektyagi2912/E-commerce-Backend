@@ -446,7 +446,7 @@ const verify = async (req, res) => {
 
         // Mark the user as verified
         user.isVerified = true;
-        user.verificationToken = undefined;
+        user.verificationToken = undefined; // Remove verification token
         await user.save();
 
         // res.status(200).json({ message: "Email verified successfully" });
