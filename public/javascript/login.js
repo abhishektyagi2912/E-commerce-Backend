@@ -39,7 +39,7 @@ btn.addEventListener('click', async (e) => {
 
         if (response.status === 200) {
             // console.log('Login Successfully');
-            location.href = '/main';
+            location.href = '/';
         } else {
             console.error('Login failed');
         }
@@ -79,7 +79,7 @@ btn2.addEventListener('click', async (e) => {
 
         if (response.status === 201) {
             // console.log('Login Successfully');
-            location.href = '/main';
+            location.href = '/';
         } else {
             console.error('Sigup failed');
         }
