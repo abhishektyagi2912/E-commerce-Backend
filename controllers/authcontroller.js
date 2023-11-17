@@ -423,6 +423,7 @@ const login = async (req, res) => {
         });
         res.cookie("userId", existingUser._id, {
             httpOnly: false,
+            maxage: 1000 * 60 * 60 * 24 * 7   // 6 days
         });
 
         res.status(200).json({ user: existingUser, token: token, message: "Login Sucessfully" });
@@ -459,7 +460,8 @@ const verify = async (req, res) => {
 
 const logout = async (req, res) => {
     res.clearCookie("authToken");
-    res.render('login', { message: "Logout Sucessfully" });
+    res.clearCookie("userId");
+    res.redirect('/login');
 }
 
 

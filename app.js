@@ -24,7 +24,7 @@ app.use(express.json({ limit: '50mb' })); // here we set the limit of the body
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
 
 app.use(authRouter);
-app.use('/', authmiddleware, productRouter);
+app.use('/main', authmiddleware, productRouter);
 app.use('/profile', authmiddleware, profileRouter);
 app.use('/orders', authmiddleware, ordersRouter);
 app.use('/cart', authmiddleware, cartRouter);
