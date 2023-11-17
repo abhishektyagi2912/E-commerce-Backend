@@ -5,6 +5,7 @@ var authRouter = require('./routes/auth');
 var productRouter = require('./routes/productRoutes');
 var profileRouter = require('./routes/profileRoute');
 var ordersRouter = require('./routes/orderRoutes');
+var cartRouter = require('./routes/cartRoutes');
 
 const dotenv = require('dotenv');
 const path = require('path');
@@ -26,6 +27,7 @@ app.use(authRouter);
 app.use('/', authmiddleware, productRouter);
 app.use('/profile', authmiddleware, profileRouter);
 app.use('/orders', authmiddleware, ordersRouter);
+app.use('/cart', authmiddleware, cartRouter);
 
 // app.get('/', authmiddleware, (req, res) => {
 //     res.render('home')
