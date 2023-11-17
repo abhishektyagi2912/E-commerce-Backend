@@ -37,7 +37,7 @@ const signup = async (req, res) => {
             verificationToken,
         });
 
-        const verificationLink = `http://localhost:3000/verify?token=${verificationToken}`;
+        const verificationLink = `https://shoespotter.onrender.com/verify?token=${verificationToken}`;
 
         const mailOptions = {
             from: EMAIL,
