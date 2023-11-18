@@ -10,7 +10,7 @@ const auth = async (req, res, next) => {
             req.userId = decodedData.id;
             next();
         }else{
-            return res.render('login',{message : "Please login first"});
+            return res.redirect('/auth/login');
         }
     }catch(err){
         // console.log(err);

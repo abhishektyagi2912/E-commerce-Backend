@@ -29,7 +29,7 @@ btn.addEventListener('click', async (e) => {
     };
 
     try {
-        const response = await fetch('/login', {
+        const response = await fetch('/auth/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -69,7 +69,7 @@ btn2.addEventListener('click', async (e) => {
     };
 
     try {
-        const response = await fetch('/signup', {
+        const response = await fetch('/auth/signup', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

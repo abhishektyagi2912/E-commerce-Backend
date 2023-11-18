@@ -23,15 +23,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json({ limit: '50mb' })); // here we set the limit of the body
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
 
-app.use(authRouter);
-app.use('/product', authmiddleware, productRouter);
+app.use('/auth',authRouter);
+app.use('/', authmiddleware, productRouter);
 app.use('/profile', authmiddleware, profileRouter);
 app.use('/orders', authmiddleware, ordersRouter);
 app.use('/cart', authmiddleware, cartRouter);
 
-app.get('/', authmiddleware, (req, res) => {
-    res.render('home')
-});
+// app.get('/', authmiddleware, (req, res) => {
+//     res.render('home')
+// });
 
 // handle error page
 app.use((req, res) => {

@@ -285,6 +285,22 @@ section .main .button:hover i{
     color: white;
 }
 
+.products_desc {
+    max-height: 3em; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical;
+}
+.products_name {
+    max-height: 3em; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical;
+}
 
 /*About*/
 

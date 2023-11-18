@@ -1,19 +1,20 @@
 const cart = require('../models/cart');
-const product = require('../models/product');
+const Product = require('../models/product');
 
 module.exports = {
     addCart: async (req, res) => {
         const userId = req.userId;
+        // console.log(userId);
         const { cartItem, quantity } = req.body;
 
         try {
-            const cartdata = await cart.find({ userId });
-            if (cart) {
-                const existingProduct = cartdata.products.find((product) => product.cartItem == cartItem);
+            const cartdata = await cart.findOne({ userId });
+            if (cartdata) {
+                const existingProduct = cartdata.products.find((product) => product.cartItem.toString() === cartItem);
                 if (existingProduct) {
                     existingProduct.quantity += 1;
                 } else {
-                    cartdata.products.push({ cartItem, quantity });
+                    cartdata.products.push({ cartItem, quantity: 1 });
                 }
                 await cartdata.save();
                 res.status(200).json({ message: "Product added to cart" });
