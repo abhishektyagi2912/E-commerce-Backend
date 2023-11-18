@@ -13,8 +13,8 @@ const auth = async (req, res, next) => {
             return res.render('login',{message : "Please login first"});
         }
     }catch(err){
-        console.log(err);
-        return res.status(401).json({message : "Unauthenticated"});
+        // console.log(err);
+        return res.status(401).render('login');
     }
 };
 module.exports = auth;
