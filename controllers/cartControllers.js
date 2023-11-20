@@ -38,9 +38,11 @@ module.exports = {
         try {
             const cartdata = await cart.findOne({ userId }).populate('products.cartItem');
             if (cartdata) {
-                res.status(200).json({ cartdata });
+                // res.status(200).json({ cartdata });
+                res.status(200).render('cart', { cartdata });
             } else {
-                res.status(200).json({ cartdata: [] });
+                res.status(200).render('cart', { cartdata: [] });
+                // res.status(200).json({ cartdata: [] });
             }
         } catch (error) {
             res.status(500).json({ message: error.message });

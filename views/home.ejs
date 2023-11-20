@@ -52,10 +52,9 @@
                     <img src="/images/shoes.png">
                 </div>
             </div>
-            <div class="button">
-                <a href="#">SHOP NOW</a>
+            <!-- <div class="button">
                 <i class="fa-solid fa-chevron-right"></i>
-            </div>
+            </div> -->
         </div>
 
     </section>
@@ -71,7 +70,7 @@
 
             <% products.forEach(product=> { %>
                 <div class="card" id="<%= product._id %>">
-                    <!-- Render your product details here dynamically -->
+                    <!-- Render product details here dynamically -->
                     <div class="image">
                         <a href="/<%= product._id %>">
                             <img src="<%= product.imageUrl[0] %>">
@@ -547,6 +546,14 @@
 
     <footer>
         <div class="footer_main">
+            <div class="footer-col-1">
+                <h3>Download Our App</h3>
+                <p>Download App for Android and iso mobile phone.</p>
+                <div class="app-logo">
+                    <img src="https://i.ibb.co/KbPTYYQ/play-store.png" alt="" />
+                    <img src="https://i.ibb.co/hVM4X2p/app-store.png" alt="" />
+                </div>
+            </div>
             <div class="tag">
                 <h1>Contact</h1>
                 <a href="#"><i class="fa-solid fa-house"></i>Delhi Ncr</a>
