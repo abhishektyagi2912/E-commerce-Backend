@@ -10,9 +10,11 @@ cartIcon.addEventListener('click', async () => {
             }
         });
         if (response.status == 200) {
-            if(respo)
             window.location.href = '/cart/fetch';
-        } else {
+        }else if (response.status == 401) {
+            window.location.href = '/login';
+        }
+         else {
             console.error('Something error failed');
         }
     }

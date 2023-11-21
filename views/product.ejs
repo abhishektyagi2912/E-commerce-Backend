@@ -1,74 +1,97 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Product Card/Page</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/stylesheet/product.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
-  </head>
-  <body>
-    
-    <div class = "card-wrapper">
-      <div class = "card">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Product Card/Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/stylesheet/product.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+    crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+  <section>
+    <nav>
+      <div class="logo">
+        <h1>Shoes<span>potter</span></h1>
+      </div>
+
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/#Products">Products</a></li>
+        <li><a href="/#About"">About</a></li>
+        <li><a href=" /#Services">Services</a></li>
+      </ul>
+
+      <div class="icons">
+        <i class="fa-solid fa-cart-shopping" id="cartIcon"></i>
+        <i class="fa-solid fa-user"></i>
+      </div>
+
+    </nav>
+
+
+    <div class="card-wrapper">
+      <div class="card">
         <!-- card left -->
-        <div class = "product-imgs">
-          <div class = "img-display">
-            <div class = "img-showcase">
-              <img src = "shoes_images/shoe_1.jpg" alt = "shoe image">
-              <img src = "shoes_images/shoe_2.jpg" alt = "shoe image">
-              <img src = "shoes_images/shoe_3.jpg" alt = "shoe image">
-              <img src = "shoes_images/shoe_4.jpg" alt = "shoe image">
+        <div class="product-imgs" style="margin-top: 150px">
+          <div class="img-display">
+            <div class="img-showcase">
+              <img src="<%= product.imageUrl[0] %>" alt="shoe image">
+              <img src="<%= product.imageUrl[1] %>" alt="shoe image">
+              <img src="<%= product.imageUrl[2] %>" alt="shoe image">
             </div>
           </div>
-          <div class = "img-select">
-            <div class = "img-item">
-              <a href = "#" data-id = "1">
-                <img src = "shoes_images/shoe_1.jpg" alt = "shoe image">
+          <div class="img-select">
+            <div class="img-item">
+              <a href="#" data-id="1">
+                <img src="<%= product.imageUrl[0] %>" alt="shoe image">
               </a>
             </div>
-            <div class = "img-item">
-              <a href = "#" data-id = "2">
-                <img src = "shoes_images/shoe_2.jpg" alt = "shoe image">
+            <div class="img-item">
+              <a href="#" data-id="2">
+                <img src="<%= product.imageUrl[1] %>" alt="shoe image">
               </a>
             </div>
-            <div class = "img-item">
-              <a href = "#" data-id = "3">
-                <img src = "shoes_images/shoe_3.jpg" alt = "shoe image">
-              </a>
-            </div>
-            <div class = "img-item">
-              <a href = "#" data-id = "4">
-                <img src = "shoes_images/shoe_4.jpg" alt = "shoe image">
+            <div class="img-item">
+              <a href="#" data-id="3">
+                <img src="<%= product.imageUrl[2] %>" alt="shoe image">
               </a>
             </div>
           </div>
         </div>
         <!-- card right -->
-        <div class = "product-content">
-          <h2 class = "product-title">nike shoes</h2>
-          <a href = "#" class = "product-link">visit nike store</a>
-          <div class = "product-rating">
-            <i class = "fas fa-star"></i>
-            <i class = "fas fa-star"></i>
-            <i class = "fas fa-star"></i>
-            <i class = "fas fa-star"></i>
-            <i class = "fas fa-star-half-alt"></i>
+        <div class="product-content" style="margin-top: 165px;">
+          <h2 class="product-title">
+            <%= product.name %>
+          </h2>
+          <div class="product-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
             <span>4.7(21)</span>
           </div>
 
-          <div class = "product-price">
-            <p class = "last-price">Old Price: <span>$257.00</span></p>
-            <p class = "new-price">New Price: <span>$249.00 (5%)</span></p>
+          <div class="product-price">
+            <p class="last-price">Old Price: <span>$<%= product.oldPrice %></span></p>
+            <p class="new-price">New Price: <span>$<%= product.price %></span></p>
           </div>
 
-          <div class = "product-detail">
+          <div class="product-detail">
             <h2>about this item: </h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo eveniet veniam tempora fuga tenetur placeat sapiente architecto illum soluta consequuntur, aspernatur quidem at sequi ipsa!</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, perferendis eius. Dignissimos, labore suscipit. Unde.</p>
+            <p>
+              <%= product.description %>
+            </p>
             <ul>
-              <li>Color: <span>Black</span></li>
               <li>Available: <span>in stock</span></li>
               <li>Category: <span>Shoes</span></li>
               <li>Shipping Area: <span>All over the world</span></li>
@@ -76,18 +99,62 @@
             </ul>
           </div>
 
-          <div class = "purchase-info">
-            <input type = "number" min = "0" value = "1">
-            <button type = "button" class = "btn">
-              Add to Cart <i class = "fas fa-shopping-cart"></i>
+          <div class="purchase-info">
+            <input type="number" min="1" value="1">
+            <button type="button" class="btn">
+              Add to Cart <i class="fas fa-shopping-cart"></i>
             </button>
-            <button type = "button" class = "btn">Compare</button>
+            <button type="button" class="btn">Buy Now</button>
           </div>
         </div>
       </div>
     </div>
+  </section>
+  <footer>
+    <div class="footer_main" style="margin-top: 190px">
+      <div class="footer-col-1">
+        <h3>Download Our App</h3>
+        <p>Download App for Android and iso mobile phone.</p>
+        <div class="app-logo">
+          <img src="https://i.ibb.co/KbPTYYQ/play-store.png" alt="" id="appstore"/>
+          <img src="https://i.ibb.co/hVM4X2p/app-store.png" alt="" id="playstore" />
+        </div>
+      </div>
+      <div class="tag">
+        <h1>Contact</h1>
+        <a href="#"><i class="fa-solid fa-house"></i>Delhi Ncr</a>
+        <a href="#"><i class="fa-solid fa-phone"></i>+91 830*****81</a>
+        <a href="#"><i class="fa-solid fa-envelope"></i>abhishektyagi2912@gmail.com</a>
+      </div>
 
-    
-    <script src="/javascript/product.js"></script>
-  </body>
+      <div class="tag">
+        <h1>Get Help</h1>
+        <a href="#" class="center">FAQ</a>
+        <a href="#" class="center">Shipping</a>
+        <a href="#" class="center">Returns</a>
+        <a href="#" class="center">Payment Options</a>
+      </div>
+
+      <div class="tag">
+        <h1>Our Stores</h1>
+        <a href="#" class="center">Rajasthan</a>
+        <a href="#" class="center">UP</a>
+        <a href="#" class="center">Mumbai</a>
+        <a href="#" class="center">Delhi</a>
+      </div>
+
+      <div class="tag">
+        <h1>Follow Us</h1>
+        <div class="social_link">
+          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="/javascript/product.js"></script>
+</body>
+
 </html>
