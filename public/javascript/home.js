@@ -1,16 +1,50 @@
-// window.addEventListener('scroll', function (event) {
-//     // Check if the user has scrolled to the bottom of the page
-//     if (window.scrollY + window.innerHeight >= document.body.scrollHeight) {
-//         // Trigger the URL change to the 'product' page
-//         window.location.href = '/product';
+const buttons = document.querySelectorAll('.btn');
+const cartIcon = document.getElementById('cartIcon');
 
-//         // Fetch all product data using an appropriate method, such as AJAX
-//         // For example, using the Fetch API:
-//         fetch('/api/products')
-//             .then(response => response.json())
-//             .then(data => {
-//                 // Process and display the fetched product data
-//                 console.log(data);
-//             });
-//     }
-// });
+cartIcon.addEventListener('click', async () => {
+    try {
+        const response = await fetch('/cart/fetch', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        });
+        if (response.status == 200) {
+            if(respo)
+            window.location.href = '/cart/fetch';
+        } else {
+            console.error('Something error failed');
+        }
+    }
+    catch (error) {
+        console.error('An error occurred:', error);
+    }
+});
+
+buttons.forEach((button) => {
+    button.addEventListener('click', async () => {
+        const clickedButtonId = button.getAttribute('data-id');
+        const data = {
+            cartItem: clickedButtonId,
+            quantity: 1
+        };
+   
+        try {
+            const response = await fetch('/cart/add', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            });
+    
+            if (response.status === 200) {
+                alert('added successful');
+            } else {
+                console.error('Login failed');
+            }
+        } catch (error) {
+            console.error('An error occurred:', error);
+        }
+    });
+});
