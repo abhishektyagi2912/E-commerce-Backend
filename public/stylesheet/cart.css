@@ -331,3 +331,22 @@ footer .footer-col-1 .app-logo {
     margin-left: 10px;
     margin-right: 20px;
 }
+
+#table {
+    margin-top: 90px;
+}
+
+#card {
+    padding: 2px;
+    margin: 2px;
+    margin-left: 2px;
+}
+
+.quantity-input {
+    width: 50px;
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}

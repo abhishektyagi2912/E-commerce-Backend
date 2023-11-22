@@ -39,10 +39,10 @@
 
         </nav>
     </section>
-    <div class="container-fluid">
+    <div class="container-fluid" id="table">
         <div class="row">
             <aside class="col-lg-9">
-                <div class="card">
+                <div class="card" id="card">
                     <div class="table-responsive">
                         <table class="table table-borderless table-shopping-cart">
                             <thead class="text-muted">
@@ -71,10 +71,11 @@
                                             </figure>
                                         </td>
                                         <td>
-                                            <input type="number" min="1" value="<%= Math.max(1, product.quantity) %>">
+                                            <input type="number" min="1" data-id="quantity-btn<%=cartdata.id%>" class="quantity-input"
+                                                value="<%= Math.max(1, product.quantity) %>">
                                         </td>
                                         <td>
-                                            <div class="price-wrap"> <var class="price">$<%= product.cartItem.price %>
+                                            <div class="price-wrap"> <var class="price">$ <%= product.cartItem.price %>
                                                 </var></div>
                                         </td>
                                         <td class="text-right d-none d-md-block">
@@ -83,7 +84,9 @@
                                             </a>
                                             <a href="" class="btn btn-light" data-abc="true"> Remove</a>
                                         </td>
+          
                                     </tr>
+                                    
                                     <% }); %>
                             </tbody>
                         </table>
@@ -96,16 +99,17 @@
                     <div class="card-body">
                         <dl class="dlist-align">
                             <dt>Total price:</dt>
-                            <dd class="text-right ml-3">$69.97</dd>
+                            <dd class="text-right ml-3">$ <%= cartdata.products.reduce((total, product)=> total +
+                                    parseFloat(product.cartItem.price) * product.quantity, 0).toFixed(2) %></dd>
                         </dl>
                         <dl class="dlist-align">
                             <dt>Discount:</dt>
-                            <dd class="text-right text-danger ml-3">- $10.00</dd>
+                            <dd class="text-right text-danger ml-3">- $0.00</dd>
                         </dl>
                         <dl class="dlist-align">
                             <dt>Total:</dt>
                             <dd class="text-right text-dark b ml-3">
-                                <strong>$<%= cartdata.products.reduce((total, product)=> total +
+                                <strong>$ <%= cartdata.products.reduce((total, product)=> total +
                                         parseFloat(product.cartItem.price) * product.quantity, 0).toFixed(2) %></strong>
                             </dd>
 
