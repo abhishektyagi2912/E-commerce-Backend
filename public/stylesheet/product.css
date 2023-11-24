@@ -252,13 +252,10 @@ img {
   color: #fff;
 }
 
-.purchase-info .btn:first-of-type {
+.purchase-info .btn:last-of-type {
   background: #256eff;
 }
 
-.purchase-info .btn:last-of-type {
-  background: #f64749;
-}
 
 .purchase-info .btn:hover {
   opacity: 0.9;
@@ -456,4 +453,12 @@ footer .footer-col-1 .app-logo {
   height: 73px;
   margin-left: 10px;
   margin-right: 20px;
+}
+.size-dropdown {
+  margin-bottom: 10px;
+}
+
+.size-label {
+  font-size: 16px;
+  color: #333;
 }

@@ -1,8 +1,55 @@
-const quantityBtn = document.getElementById('data-id');
 
-quantityBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    const id = e.target.getAttribute('data-id');
-    const quantity = e.target.getAttribute('data-quantity');
-    console.log(id, quantity);    
+function updateQuantity(input) {
+
+    var itemId = input.getAttribute("data-id");
+    var quantity = input.value;
+    // console.log(quantity, itemId);
+
+    cartdata = {
+        quantity: quantity
+    };
+
+    var updateLink = "/cart/update/" + itemId;
+    try {
+        const response = fetch(updateLink, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(cartdata)
+        });
+
+        if (response.status == 200) {
+            location.reload();
+        }
+    } catch (error) {
+        alert('An error occurred:', error);
+    }
+}
+const removeButtons = document.querySelectorAll('.remove-btn');
+
+removeButtons.forEach(button => {
+    button.addEventListener('click', function () {
+        const itemId = this.getAttribute('data-id');
+        deleteItem(itemId);
+    });
 });
+
+async function deleteItem(itemId) {
+    try {
+        const response = await fetch(`/cart/delete/${itemId}`, {
+            method: 'DELETE',
+            headers: {
+                'content-type': 'application/json'
+            },
+        });
+
+        if (response.ok) {
+            location.reload();
+        } else {
+            console.error('Delete failed:', response.statusText);
+        }
+    } catch (error) {
+        console.error('An error occurred:', error);
+    }
+}

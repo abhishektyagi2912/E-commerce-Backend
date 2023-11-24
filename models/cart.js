@@ -18,7 +18,6 @@ const cartSchema = new mongoose.Schema({
                 required: true,
                 default: 1
             }
-
         }
     ]
 }, { timestamps: true });

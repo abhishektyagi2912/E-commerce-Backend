@@ -14,7 +14,7 @@ module.exports = {
                 if (existingProduct) {
                     existingProduct.quantity += 1;
                 } else {
-                    cartdata.products.push({ cartItem, quantity: 1 });
+                    cartdata.products.push({ cartItem, quantity: quantity });
                 }
                 await cartdata.save();
                 res.status(200).json({ message: "Product added to cart" });
@@ -67,7 +67,7 @@ module.exports = {
     },
 
     updateCart: async (req, res) => {
-        const cartItemId = req.params.cartItem;
+        const cartItemId = req.params.cartItem;  //here cartItem is the id of the product
         const { quantity } = req.body;
 
         try {

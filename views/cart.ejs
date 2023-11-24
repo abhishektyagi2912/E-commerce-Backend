@@ -71,8 +71,8 @@
                                             </figure>
                                         </td>
                                         <td>
-                                            <input type="number" min="1" data-id="quantity-btn<%=cartdata.id%>" class="quantity-input"
-                                                value="<%= Math.max(1, product.quantity) %>">
+                                            <input type="number" min="1" data-id="<%=product.cartItem._id%>" class="quantity-input"
+                                            value="<%= product.quantity %>" onchange="updateQuantity(this)">
                                         </td>
                                         <td>
                                             <div class="price-wrap"> <var class="price">$ <%= product.cartItem.price %>
@@ -82,7 +82,7 @@
                                             <a data-original-title="Save to Wishlist" title="" href=""
                                                 class="btn btn-light" data-toggle="tooltip" data-abc="true">
                                             </a>
-                                            <a href="" class="btn btn-light" data-abc="true"> Remove</a>
+                                            <a href="#" class="btn btn-light remove-btn" data-abc="true" data-id="<%=product.cartItem._id%>">Remove</a>
                                         </td>
           
                                     </tr>
@@ -104,7 +104,7 @@
                         </dl>
                         <dl class="dlist-align">
                             <dt>Discount:</dt>
-                            <dd class="text-right text-danger ml-3">- $0.00</dd>
+                            <dd class="text-right text-danger ml-3">- $0.00 (No Discount is available)</dd>
                         </dl>
                         <dl class="dlist-align">
                             <dt>Total:</dt>

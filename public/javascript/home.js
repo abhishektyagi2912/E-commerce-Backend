@@ -12,7 +12,7 @@ cartIcon.addEventListener('click', async () => {
         if (response.status == 200) {
             window.location.href = '/cart/fetch';
         }else if (response.status == 401) {
-            window.location.href = '/login';
+            window.location.href = '/auth/login';
         }
          else {
             console.error('Something error failed');
