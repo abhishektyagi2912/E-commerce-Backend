@@ -43,25 +43,13 @@ cartIcon.addEventListener('click', async () => {
     }
 });
 
-let quantitybtn = 1;
-
-document.getElementById("data-id").addEventListener("input", handleValueChange);
-
-function handleValueChange() {
-    var inputValue = document.getElementById("data-id").value;
-    quantitybtn = inputValue;
-}
-
 buttons.forEach((button) => {
     button.addEventListener('click', async () => {
         const clickedButtonId = button.getAttribute('data-id');
-
         try {
-            handleValueChange(); // Wait for handleValueChange to complete
-
             const data = {
                 cartItem: clickedButtonId,
-                quantity: quantitybtn
+                quantity: 1
             };
 
             const response = await fetch('/cart/add', {

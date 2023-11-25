@@ -100,15 +100,15 @@
             <h4>Select Size:</h4>
             <div>
               <select class="size-dropdown" onchange="updateSize()">
-                <% product.size.forEach(size => { %>
-                  <option value="<%= size.size %>" <%= size.isSelected ? 'selected' : '' %>><%= size.size %></option>
-                <% }); %>
+                <% product.size.forEach(size=> { %>
+                  <option value="<%= size.size %>" <%=size.isSelected ? 'selected' : '' %>><%= size.size %>
+                  </option>
+                  <% }); %>
               </select>
-            </div>          
+            </div>
           </div>
 
           <div class="purchase-info">
-            <input type="number" min="1" value="1" id="data-id">
             <button type="button" class="btn" data-id="<%= product._id%>">
               Add to Cart <i class="fas fa-shopping-cart"></i>
             </button>

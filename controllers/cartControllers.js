@@ -14,7 +14,7 @@ module.exports = {
                 if (existingProduct) {
                     existingProduct.quantity += 1;
                 } else {
-                    cartdata.products.push({ cartItem, quantity: quantity });
+                    cartdata.products.push({ cartItem, quantity: 1 });
                 }
                 await cartdata.save();
                 res.status(200).json({ message: "Product added to cart" });

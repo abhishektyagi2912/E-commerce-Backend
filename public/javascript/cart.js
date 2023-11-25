@@ -1,17 +1,15 @@
-
-function updateQuantity(input) {
-
+async function updateQuantity(input) {
     var itemId = input.getAttribute("data-id");
     var quantity = input.value;
-    // console.log(quantity, itemId);
 
     cartdata = {
         quantity: quantity
     };
 
     var updateLink = "/cart/update/" + itemId;
+
     try {
-        const response = fetch(updateLink, {
+        const response = await fetch(updateLink, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -19,13 +17,16 @@ function updateQuantity(input) {
             body: JSON.stringify(cartdata)
         });
 
-        if (response.status == 200) {
+        if (response.status === 200) {
             location.reload();
+        } else {
+            console.error('Update failed');
         }
     } catch (error) {
-        alert('An error occurred:', error);
+        console.error('An error occurred:', error);
     }
 }
+
 const removeButtons = document.querySelectorAll('.remove-btn');
 
 removeButtons.forEach(button => {
