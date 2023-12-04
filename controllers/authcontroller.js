@@ -37,7 +37,7 @@ const signup = async (req, res) => {
             verificationToken,
         });
 
-        const verificationLink = `https://shoespotter.onrender.com/verify?token=${verificationToken}`;
+        const verificationLink = `https://shoespotter.onrender.com/auth/verify?token=${verificationToken}`;
 
         const mailOptions = {
             from: EMAIL,
@@ -461,7 +461,7 @@ const verify = async (req, res) => {
 const logout = async (req, res) => {
     res.clearCookie("authToken");
     res.clearCookie("userId");
-    res.redirect('/login');
+    res.redirect('/auth/login');
 }
 
 
