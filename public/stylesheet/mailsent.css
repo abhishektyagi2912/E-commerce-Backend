@@ -1,0 +1,292 @@
+:root {
+    --dark: #616161;
+    --white: #fafafa;
+    --gray-1: #a4b0be;
+    --gray-2: #ced6e0;
+    --success-1: #7bed9f;
+    --success-2: #25bc63;
+    --error-1: #ff6b81;
+    --error-2: #ff4757;
+    --subtle-gray: #f3f3f4;
+    --subtle-gray-2: #dfe4ea;
+    --shadow-dark: #212121;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,500");
+
+html {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Raleway", sans-serif;
+    font-size: 14px;
+    width: 100%;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: auto;
+}
+
+.success,
+.error {
+    position: relative;
+    width: 20rem;
+    height: 20rem;
+    margin: 0 1rem;
+    border-radius: 50px;
+    box-shadow: 4px 4px 6px rgba(var(--dark), 0.4);
+}
+
+.success {
+    background: linear-gradient(to bottom right, var(--success-1), var(--success-2));
+}
+
+.error {
+    background: linear-gradient(to bottom right, var(--error-1), var(--error-2));
+}
+
+.msg-success {
+    position: relative;
+    width: 100px;
+    height: 50px;
+    margin: 4.5rem auto 2.9rem auto;
+    background-color: var(--subtle-gray-2);
+    border-radius: 5px;
+    animation: float 2s ease-in-out infinite alternate;
+}
+
+.msg-success::before,
+.msg-success::after {
+    content: "";
+    position: absolute;
+    border: 0 solid transparent;
+    border-width: 23px 50px;
+}
+
+.msg-success::after {
+    bottom: 1px;
+    left: 0;
+    border-right-color: var(--subtle-gray-2);
+    border-bottom-color: var(--subtle-gray);
+    border-left-color: var(--subtle-gray);
+    border-radius: 0 0 5px 5px;
+    transform: rotate(360deg);
+}
+
+.msg-success .letter {
+    position: absolute;
+    left: 8px;
+    bottom: 40%;
+    width: 85px;
+    height: 55px;
+    background-color: var(--white);
+    border-radius: 5px;
+}
+
+@keyframes float {
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+.msg-error {
+    position: relative;
+    width: 100px;
+    height: 50px;
+    margin: 4.5rem auto 2.9rem auto;
+    animation: float 2s ease-in-out infinite alternate;
+}
+
+.msg-error::before,
+.msg-error::after {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+}
+
+.msg-error::before {
+    bottom: 0;
+    left: 50%;
+    background-color: var(--subtle-gray);
+    transform: rotate(10deg);
+    -webkit-clip-path: polygon(100% 0,
+            100% 100%,
+            16% 100%,
+            0 85%,
+            17% 70%,
+            0 55%,
+            20% 41%,
+            0 30%,
+            20% 13%,
+            0 0);
+    clip-path: polygon(100% 0,
+            100% 100%,
+            16% 100%,
+            0 85%,
+            17% 70%,
+            0 55%,
+            20% 41%,
+            0 30%,
+            20% 13%,
+            0 0);
+    animation: move-left 2s ease-in-out infinite alternate;
+}
+
+.msg-error::after {
+    bottom: 0;
+    right: 60%;
+    background-color: var(--subtle-gray);
+    transform: rotate(-10deg);
+    -webkit-clip-path: polygon(0% 0%,
+            0% 100%,
+            100% 100%,
+            84% 85%,
+            100% 70%,
+            83% 54%,
+            100% 43%,
+            82% 28%,
+            100% 14%,
+            81% 0);
+    clip-path: polygon(0% 0%,
+            0% 100%,
+            100% 100%,
+            84% 85%,
+            100% 70%,
+            83% 54%,
+            100% 43%,
+            82% 28%,
+            100% 14%,
+            81% 0);
+    animation: move-right 2s ease-in-out infinite alternate;
+}
+
+.msg-error .letter {
+    z-index: 1000;
+    position: absolute;
+    left: 8px;
+    bottom: 5%;
+    height: 55px;
+}
+
+.msg-error .letter::before,
+.msg-error .letter::after {
+    content: "";
+    position: absolute;
+    width: 26px;
+    border: 2px solid var(--gray-1);
+    box-shadow: 0 9px 0 var(--gray-2), 0 18px 0 var(--gray-2), 0 27px 0 var(--gray-2);
+}
+
+.msg-error .letter::before {
+    bottom: 60%;
+    right: -18px;
+    transform: rotate(-10deg);
+    animation: move-right 2s ease-in-out infinite alternate;
+}
+
+.msg-error .letter::after {
+    bottom: 60%;
+    left: 58px;
+    transform: rotate(10deg);
+    animation: move-left 2s ease-in-out infinite alternate;
+}
+
+@keyframes move-right {
+    from {
+        transform: rotate(-15deg), translateX(0);
+    }
+
+    to {
+        transform: translateX(8px);
+    }
+}
+
+@keyframes move-left {
+    from {
+        transform: rotate(15deg), translateX(0);
+    }
+
+    to {
+        transform: translateX(-8px);
+    }
+}
+
+.shadow {
+    position: absolute;
+    top: 135px;
+    left: 110px;
+    width: 100px;
+    height: 20px;
+    background-color: var(--dark);
+    border-radius: 50%;
+    opacity: 0.65;
+    animation: shadow 2s ease-in-out infinite alternate;
+}
+
+@keyframes shadow {
+    50% {
+        transform: scale(0.9);
+    }
+}
+
+.title {
+    font-size: 180%;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.message {
+    position: absolute;
+    bottom: 20%;
+    font-size: 110%;
+    color: var(--white);
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+.success,
+.error {
+
+    .btn,
+    .btn:focus {
+        position: absolute;
+        bottom: 8%;
+        left: 25%;
+        width: 50%;
+        height: 2.5rem;
+        font-size: 90%;
+        background-color: var(--white);
+        border: none;
+        border-radius: 50px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        box-shadow: 2px 2px 6px rgba(var(--shadow-dark), 0.4);
+        transition: all 800ms ease-in-out;
+        outline: none;
+        cursor: pointer;
+    }
+
+    .btn-success {
+        color: var(--success-2);
+    }
+
+    .btn-error {
+        color: var(--error-2);
+    }
+}

@@ -33,6 +33,10 @@ app.use('/cart', authmiddleware, cartRouter);
 //     res.render('home')
 // });
 
+app.get('/auth/sent', (req, res) => {
+    res.render('mailsent');
+});
+
 // handle error page
 app.use((req, res) => {
     res.render('error');

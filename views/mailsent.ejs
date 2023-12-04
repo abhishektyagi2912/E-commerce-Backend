@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheet/mailsent.css">
+    <title>Shoespotter</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="success">
+            <div class="msg-success">
+                <div class="letter"></div>
+            </div>
+            <div class="shadow"></div>
+            <h1 class="title">Success</h1>
+            <p class="message">Wohoo! Verification mail has been sent. Please verify your mail.</p>
+            <button class="btn btn-success" onclick="redirectToLogin()">Continue</button>
+        </div>
+    </div>
+
+    <script>
+        function redirectToLogin() {
+            // Redirect to the login page
+            window.location.href = "/auth/login";
+        }
+    </script>
+</body>
+
+</html>
