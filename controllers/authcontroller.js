@@ -382,15 +382,15 @@ const signup = async (req, res) => {
             }
         });
 
-        res.cookie("authToken", verificationToken, {
-            httpOnly: true,
-            sameSite: "lax",
-            maxage: 1000 * 60 * 60 * 24 * 7   // 7 days
-        });
+        // res.cookie("authToken", verificationToken, {
+        //     httpOnly: true,
+        //     sameSite: "lax",
+        //     maxage: 1000 * 60 * 60 * 24 * 7   // 7 days
+        // });
 
-        res.cookie("userId", user._id, {
-            httpOnly: false,
-        });
+        // res.cookie("userId", user._id, {
+        //     httpOnly: false,
+        // });
 
         return res.status(201).json({ result: user, message: "User created successfully" });
     } catch (err) {
