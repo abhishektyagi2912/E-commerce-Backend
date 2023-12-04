@@ -251,7 +251,7 @@ const signup = async (req, res) => {
                                 <tr>
                                   <td style="word-break:break-word;font-size:0px;padding:0px 0px 20px;" align="left">
                                     <div style="cursor:auto;color:#737F8D;font-family:Whitney, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;font-size:16px;line-height:24px;text-align:left;">
-                                      <p><img src="/images/email.png" alt="Party Wumpus" title="None" width="500" style="height: auto;"></p>
+                                      <p><img src="https://www.shutterstock.com/image-vector/clap-hand-icon-isolated-on-600nw-1781394782.jpg" alt="Party Wumpus" title="None" width="500" style="height: auto;"></p>
           
                                       <h2 style="font-family: Whitney, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;font-weight: 500;font-size: 20px;color: #4F545C;letter-spacing: 0.27px;">Hey ${username},</h2>
                                       <p>Wowwee! Thanks for registering an account with Shoespotter! You're the coolest person in all the land (and I've met a lot of really cool people).</p>
