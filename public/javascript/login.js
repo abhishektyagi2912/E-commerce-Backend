@@ -79,7 +79,7 @@ btn2.addEventListener('click', async (e) => {
 
         if (response.status === 201) {
             // console.log('Login Successfully');
-            alert("Check your email");
+            // alert("Check your email");
             location.href = '/auth/sent';
         } else {
             console.error('Sigup failed');
